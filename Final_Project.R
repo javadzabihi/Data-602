@@ -1,4 +1,6 @@
-# Data-602
+# Data-602 Final Project
+
+# This code is in the process of revising and will be updated so soon!
 
 setwd("../R Programming Folder/Data 602 Final Project")
 
