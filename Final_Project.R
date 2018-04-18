@@ -210,7 +210,19 @@ new_data_311$Median_Household_Income[which(new_data_311$Neighborhood==82 | new_d
 
 
 
-   
+#Making several plots to get a clear idea about how our data is distributed
+
+#Plotting histogram
+hist(new_data_311$Median_Household_Income, col='grey')
+
+#Using frequencies or densities
+#Creating a density plot
+mydatadens <- density(new_data_311$Median_Household_Income)
+plot(mydatadens)
+
+       
+       
+boxplot(Median_Household_Income~Neighborhood,data = new_data_311)   
 
 
 
