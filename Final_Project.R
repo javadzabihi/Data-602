@@ -245,7 +245,7 @@ head(data_311)
 
 # crime_dataset
 
-crime_data <- read.csv("Crimes_By_Neighborhood.csv")
+crime_data <- read.csv("BPD_Part_1_Victim_Based_Crime_Data.csv")
 str(crime_data)
 summary(crime_data)
 table(crime_data$Description)
@@ -262,7 +262,7 @@ tail(mydata_crime)
 
 # Removing "CrimeCode" column from the dataset
 
-crime_data <- crime_data[,-2]
+crime_data <- crime_data[,-3]
 head(crime_data)
 
 #Convert "CrimeDate column to Dates
