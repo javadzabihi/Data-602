@@ -368,11 +368,32 @@ test_set = subset(vehicle_table, split == FALSE)
 regressor = lm(formula = TimeTaken ~ createdDay + MethodReceived,
                data = training_set)
 
+       
+summary(regressor)
+plot(regressor)       
+       
 # Predicting the Test set results
 y_pred = predict(regressor, newdata = test_set)
 
 
+results <- cbind(y_pred, test_set$TimeTaken)
+colnames(results) <-  c('predicted', 'actual')
+results <- as.data.frame(results)       
+head(results)       
+       
+# MEAN  Squared Error      
+mse <- mean((results$actual - results$predicted)^2)      
+       
+# Root Mean Squared Error       
+rmse <- mse^.5
 
+       
+SSE <- sum((results^predicted - results$actual)^2)       
+SST <- sum( (mean(crime_data$TimeTaken) -  results$actual)^2)      
+R2 <- 1 - SSE/SST       
+       
+       
+       
 # Building the optimal model using Backward Elimination
 regressor = lm(formula = TimeTaken ~ Neighborhood + MethodReceived + createdDay,
                data = vehicle_table)
@@ -386,10 +407,21 @@ regressor = lm(formula = TimeTaken ~ Neighborhood,
                data = vehicle_table)
 summary(regressor)
 
+              
+       
+       
 # Visualising the Regression Model results
 # install.packages('ggplot2')
-
-
+       
+plot(regressor)
+       
+res <- residuals(regressor)       
+res <- as.data.frame(res)
+head(head)       
+ggplot(res, aes(res)) + geom_histogram(fill = 'blue', alpha = 0.5)
+       
+       
+       
 library(ggplot2)
 ggplot() +
   geom_point(aes(x = vehicle_table$createdDay, y = vehicle_table$TimeTaken),
