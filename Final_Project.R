@@ -260,6 +260,20 @@ table(sort(data_311$Neighborhood))
 mydata_crime <- tbl_df(crime_data)
 head(mydata_crime)
 tail(mydata_crime)
+       
+# Finding the correlation between numerical columns
+Num.cols <- sapply(crime_data, is.numeric)
+Cor.data <- cor(crime_data[, Num.cols])
+       
+install.packages("corrgram") 
+library(corrgram)       
+install.packages("corrplot")  
+library(corrplot)
+ 
+ corrplot(cor.data, method = 'color')      
+ 
+ corrgram(crime_data, order = TRUE, lower.panel = panel.shade,
+         upper.panel = panel.pie, text.panel = panel.txt)      
 
 # Removing "CrimeCode" column from the dataset
 
