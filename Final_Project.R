@@ -261,6 +261,13 @@ mydata_crime <- tbl_df(crime_data)
 head(mydata_crime)
 tail(mydata_crime)
        
+# Missing data 
+install.packages('Amelia')
+library(Amelia)       
+missmap(crime_data,y.at=c(1),y.labels = c(''),col=c('yellow','black'))       
+       
+      
+       
 # Finding the correlation between numerical columns
 Num.cols <- sapply(crime_data, is.numeric)
 Cor.data <- cor(crime_data[, Num.cols])
