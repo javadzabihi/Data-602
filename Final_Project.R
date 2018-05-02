@@ -277,7 +277,7 @@ library(corrgram)
 install.packages("corrplot")  
 library(corrplot)
  
- corrplot(cor.data, method = 'color')      
+ corrplot(Cor.data, method = 'color')      
  
  corrgram(crime_data, order = TRUE, lower.panel = panel.shade,
          upper.panel = panel.pie, text.panel = panel.txt)      
